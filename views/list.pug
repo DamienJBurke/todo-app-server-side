@@ -1,0 +1,30 @@
+mixin list(data)
+
+    each task in data
+
+        - var isActive = function (t) { return t[2] === true ? 'completeTask' : 'activeTask' } 
+        li.tasklist
+
+            div(class='task')
+
+                div(contenteditable="true" class=`text${isActive(task)}` id=`divtext${task[1]}`) #{task[0]}
+
+                form(action="/tasks/updatecontent", method="post" id=`from${task[1]}`)
+
+                    input( type='hidden',id='taskid' name='taskId' value=task[1] )
+
+                    textarea(id=`textarea-divtext${task[1]}` name=`text` style="display:none")
+
+                form.taskbuttons(action="tasks/togglestate",method="post")
+
+                    script(src="../javascripts/updateImage.js")
+
+                    input( type='hidden',id='taskId',name='taskId',value=task[1])
+
+                    <input type="image" title="" alt='submit' src="/images/noun_approved_2034927.png"  onmouseover="hover(this,'/images/noun_approved_2034923.png')" onmouseout="unhover(this,'/images/noun_approved_2034927.png')"/>
+
+                form.taskbuttons(action="tasks/removetask",method="post")
+
+                    input( type='hidden',id='taskId',name='taskId',value=task[1])
+
+                    <input type="image" title="" alt='submit' src="/images/noun_cancel_2035020.png"  onmouseover="hover(this,'/images/noun_cancel_2035021.png')" onmouseout="unhover(this,'/images/noun_cancel_2035020.png')"/>

@@ -1,0 +1,148 @@
+.header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+}
+
+body {
+  margin-top: 0px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: rgb(248, 248, 248)
+}
+
+input {
+  width:100%;
+}
+
+h3 {
+  text-align: center;
+  margin: 10px;
+  padding: 5px;
+}
+
+.lists-tools{
+  width:100%;
+  height: 40px;
+  margin: 5px;
+}
+.new-list {
+  width: 40px;
+  float: left;
+}
+
+.todolist {
+  width: 33%;
+  left: 25%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 10px;
+  background-color: #ffffff;
+  float: left; 
+}
+
+.list-title{
+  width:100%;
+  overflow: hidden;
+  background-color: azure;
+  padding:2%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.list-title-archived{
+  width:100%;
+  overflow: hidden;
+  background-color: red;
+  padding:2%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.text-list-title {
+  width:80%;
+  float: left;
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.createDiv {
+  padding:5%;
+  box-sizing: content-box;
+  position: relative;
+}
+
+ul.tasklist {
+  padding: 1%;
+  list-style-type: none;
+  margin-top: 10px;
+  position: relative;
+}
+
+li.tasklist {
+  height:40px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+textarea {
+  width: 80%;
+  float: left;
+  border:hidden;
+  font-size: 15px;
+}
+
+textarea:focus{
+  background: whitesmoke;
+  outline:none;
+}
+
+.taskbuttons {
+  width: 24px;
+  box-sizing: border-box;
+  float: left;
+  height: auto;
+}
+
+.create {
+  border-bottom:1px solid black;
+  width: 80%;
+  
+}
+
+.create:empty:not(:focus):before {
+  content :attr(data-placeholder);
+  color: gray
+}
+
+div:focus{
+  background: whitesmoke;
+  outline:none;
+}
+
+.task {
+  width:100%;
+  overflow: hidden;
+  padding:2%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.textcompleteTask {
+  width: 80%;
+  text-decoration: line-through;
+  color: rgb(161, 161, 161);
+  float: left;
+  font-size: 18px;
+  position: relative;
+}
+
+.textactiveTask {
+  width: 80%;
+  text-decoration-color:black;
+  float: left;
+  position: relative;
+  font-size: 18px;
+}

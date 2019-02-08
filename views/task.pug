@@ -1,0 +1,24 @@
+extends layout
+
+block content
+
+    h2.header=title
+
+    div(class='lists-tools' id='create-list') 
+
+        form.new-list(action="tasks/createlist",method="post")
+
+            script(src="../javascripts/updateImage.js")
+
+            input( type="image" title="" alt='submit' src="/images/noun_add_2034915.png"  onmouseover="hover(this,'/images/noun_add_2034917.png')" onmouseout="unhover(this,'/images/noun_add_2034915.png')")
+
+        form.new-list(action="tasks/archive",method="get")
+
+            script(src="../javascripts/updateImage.js")
+
+            input( type="image" title="" alt='submit' src="/images/noun_archive_1573628.png"  onmouseover="hover(this,'/images/noun_archive_921114.png')" onmouseout="unhover(this,'/images/noun_archive_1573628.png')")
+            
+
+
+    include tasklist.pug
+    +tasklist(data)

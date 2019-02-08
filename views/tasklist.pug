@@ -1,0 +1,49 @@
+mixin tasklist(data)
+    each list in data
+        -var isArchived = function (list) { return list[2] === true ? '-archived': ''}
+
+        div.todolist
+
+
+            div(class=`list-title${isArchived(list)}`)
+                
+                div(contenteditable="true" class=`text-list-title` id=`title-${list[0]}` name=`title-${list[0]}` ) #{list[1]}
+                
+                form(action="/tasks/updatelisttitle",method="post")
+
+                    input( type='hidden' id='listId' name='listId' value=list[0])
+
+                    textarea(id=`textarea-title-${list[0]}` name='text' style='display:none')
+
+                form.taskbuttons(action="/tasks/togglestatelist",method="post")
+
+                    script(src="../javascripts/updateImage.js")
+
+                    input( type='hidden',id='listId',name='listId',value=list[0])
+
+                    <input type="image" title="" alt='submit' src="/images/noun_approved_2034927.png"  onmouseover="hover(this,'/images/noun_approved_2034923.png')" onmouseout="unhover(this,'/images/noun_approved_2034927.png')"/>
+
+                form.taskbuttons(action="tasks/removelist",method="post")
+
+                    input( type='hidden',id='taskId',name='listId',value=list[0])
+
+                    <input type="image" title="" alt='submit' src="/images/noun_cancel_2035020.png"  onmouseover="hover(this,'images/noun_cancel_2035021.png')" onmouseout="unhover(this,'/images/noun_cancel_as2035020.png')"/>
+
+            div(class="createDiv")
+
+                div(contenteditable="true" data-placeholder ="Create Task..." class="create" id=`divtext-create-${list[0]}`)
+
+                form(action="/tasks/create", method="post" name=`createForm-${list[0]}` id=`createForm--${list[0]}` display="none")
+                    input( type='hidden',id='listid' name='listId' value=list[0] )
+
+                    textarea(id=`textarea-divtext-create-${list[0]}` name="newTask" style="display:none")    
+       
+            div
+
+                ul.tasklist
+
+                    include list.pug
+                    //if list[3][0] != NULL
+                    +list(list[3])
+    script(src = "/javascripts/submitContent.js") 
+        //submit="#{submitForm('newTask','test','createForm')}"
